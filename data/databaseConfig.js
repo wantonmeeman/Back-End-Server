@@ -5,7 +5,7 @@ var dbconnect = {
             host: "localhost",
             user: "root",
             password: "Yolo021205",
-            database: "assign"
+            database: "stuff1"
         });
         return conn;
     }
