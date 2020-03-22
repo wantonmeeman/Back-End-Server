@@ -15,21 +15,11 @@ var storage = multer.diskStorage({/* need to install multer*///do seperate files
     cb(null, 'uploads/')//Storage area
   },
   filename: function (req, file, cb) {/*cb == callback*/
-    cb(null, Date.now()/*unix time*/ + '.jpg'/*edit this to change extension*/) //Appending .jpg
+    cb(null, Date.now()+'')//Appending .jpg
   }
 })
 var upload = multer({
   storage: storage,
-  limits: { fileSize: 1e+6 },
-  fileFilter: function (req, file, cb) {
-    console.log(file.mimetype)
-    if (file.mimetype != 'image/jpeg') {
-      console.log('Non-jpeg file was aborted')
-      // req.err = 'Please only upload JPEG files';
-      return cb(new Error('Wrong File Type'))//error handle >1mb TO DO
-    }
-    cb(null, true)
-  }
 })
 var myLogger = function (req, res, next) {//fires everytime get app is called
 
